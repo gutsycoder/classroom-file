@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const usersController = require('../controllers/usersController');
 router.post('/signup',(req,res)=>{
-    return res.status(200).json({message:"Signing up the user",data:[]});
+    usersController.createUser(req,res);
+});
+router.post('/login',(req,res)=>{
+    usersController.loginUser(req,res);
 })
+   
 module.exports=router;

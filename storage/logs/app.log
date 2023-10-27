@@ -1,0 +1,59 @@
+2023-10-27T21:41:21.320Z error: 'role_types is not defined\n' +
+  'ReferenceError: role_types is not defined\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:20:23)\n' +
+  '    at E:\\toddle_assignment\\routes\\users.js:5:21\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:144:13)\n' +
+  '    at Route.dispatch (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:114:3)\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at E:\\toddle_assignment\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+  '    at Function.process_params (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\index.js:346:12)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\index.js:280:10)\n' +
+  '    at Function.handle (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\index.js:175:3)'
+2023-10-27T21:42:51.307Z error: 'password is not defined\n' +
+  'ReferenceError: password is not defined\n' +
+  '    at usersService.createUser (E:\\toddle_assignment\\services\\usersService.js:9:42)\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:28:47)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-27T21:42:51.314Z error: 'Something Went Wrong'
+2023-10-27T21:43:29.042Z error: 'role is not defined\n' +
+  'ReferenceError: role is not defined\n' +
+  '    at usersService.createUser (E:\\toddle_assignment\\services\\usersService.js:14:23)\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:28:47)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-27T21:44:10.292Z error: 'users validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password", role_id: `0` is not a valid enum value for path `role_id`.\n' +
+  'ValidationError: users validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password", role_id: `0` is not a valid enum value for path `role_id`.\n' +
+  '    at Document.invalidate (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:3173:32)\n' +
+  '    at model.$set (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:1453:12)\n' +
+  '    at model.$set (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:1113:16)\n' +
+  '    at model.Document (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:164:12)\n' +
+  '    at model.Model (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\model.js:123:12)\n' +
+  '    at new model (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\model.js:4707:15)\n' +
+  '    at usersService.createUser (E:\\toddle_assignment\\services\\usersService.js:10:29)\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:28:47)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-27T21:44:59.402Z error: 'users validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"\n' +
+  'ValidationError: users validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"\n' +
+  '    at Document.invalidate (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:3173:32)\n' +
+  '    at model.$set (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:1453:12)\n' +
+  '    at model.$set (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:1113:16)\n' +
+  '    at model.Document (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\document.js:164:12)\n' +
+  '    at model.Model (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\model.js:123:12)\n' +
+  '    at new model (E:\\toddle_assignment\\node_modules\\mongoose\\lib\\model.js:4707:15)\n' +
+  '    at usersService.createUser (E:\\toddle_assignment\\services\\usersService.js:10:29)\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:28:47)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-27T21:45:28.033Z error: 'Illegal arguments: string, undefined\n' +
+  'Error: Illegal arguments: string, undefined\n' +
+  '    at _async (E:\\toddle_assignment\\node_modules\\bcryptjs\\dist\\bcrypt.js:214:46)\n' +
+  '    at E:\\toddle_assignment\\node_modules\\bcryptjs\\dist\\bcrypt.js:223:17\n' +
+  '    at new Promise (<anonymous>)\n' +
+  '    at bcrypt.hash (E:\\toddle_assignment\\node_modules\\bcryptjs\\dist\\bcrypt.js:222:20)\n' +
+  '    at usersService.createUser (E:\\toddle_assignment\\services\\usersService.js:9:44)\n' +
+  '    at UserController.createUser (E:\\toddle_assignment\\controllers\\usersController.js:28:47)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-27T21:45:28.039Z error: 'Something Went Wrong'
+2023-10-27T22:06:11.092Z error: 'bcryptjs is not a function\n' +
+  'TypeError: bcryptjs is not a function\n' +
+  '    at UserController.loginUser (E:\\toddle_assignment\\controllers\\usersController.js:51:35)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
