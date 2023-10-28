@@ -16,7 +16,9 @@ router.delete('/delete',checkAuth,(req,res)=>{
 router.post('/add/student',checkAuth,(req,res)=>{
     classRoomController.addStudent(req,res);
 })
-
+router.delete('/remove/student',checkAuth,(req,res)=>{
+    classRoomController.removeStudent(req,res);
+})
 
 module.exports = router;
 

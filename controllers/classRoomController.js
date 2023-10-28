@@ -105,6 +105,9 @@ class classRoomController{
             if(!studentUser){
                 return res.status(404).json({message:"Student Does not Exists",data:[]});
             }
+            if(classroom.students.some(student=>student.student_user_id===student_user_id)){
+                return res.status(400).json({message:"Student Already Added to this class",data:[]});
+            }
             classroom.students.push({student_user_id});
             const updatedClassRoom = await classroom.save();
             return res.status(200).json({message:"Student Successfully Added to the Classroom",data:updatedClassRoom});
@@ -113,6 +116,41 @@ class classRoomController{
             return res.status(500).json({message:"Something Went Wrong",data:[]});
         }
     }
+
+    async removeStudent(req,res){
+        try{
+            const {classroom_id,student_user_id}=req.body;
+            const user_id= req.userData.user_id;
+            if(!student_user_id){
+                return res.status(400).json({message:"Student USERID Is Required",data:[]});
+            }
+            if(!classroom_id){
+                return res.status(400).json({message:"Class ID Is Required",data:[]});
+            }
+            const role_id = req.userData.role_id;
+            if(role_id!==1){
+                return res.status(403).json({message:"Not Authorized To Add Student",data:[]});
+            }
+            const classroom = await classRoom.findOne({_id:classroom_id,"created_by.user_id":user_id});
+            if(!classroom){
+                return res.status(404).json({message:"Classroom Not Found Or This Classroom not created by the tutor",data:[]});
+            }
+            const studentUser = await Users.findOne({user_id:student_user_id});
+            if(!studentUser){
+                return res.status(404).json({message:"Student Does not Exists",data:[]});
+            }
+            await classRoom.updateOne(
+                {_id: classroom_id},
+                { $pull:{students:{student_user_id:student_user_id}}}
+            );
+            const updatedClassRoom = await classRoom.findOne({_id:classroom_id});
+            return res.status(200).json({message:"Student Removed From The Class",data:updatedClassRoom});
+        }catch(error){
+            logger.error(error);
+            return res.status(500).json({message:"Something Went Wrong",data:[]});
+        }
+    }
+
 }
 
 module.exports = new classRoomController();
