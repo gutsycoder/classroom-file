@@ -13,10 +13,6 @@ class classRoomController{
                 return res.status(400).json({message:"Subject Name Is Compulsory",data:[]});
             }
             const user =await Users.findOne({user_id});
-            const role_id=user.role_id;
-            if(role_id!=1){
-                return res.status(400).json({message:"Not Authorized To Create The ClassRoom",data:[]});
-            }
             const created_by= {tutor:user.name,user_id:user_id};
 
             const newClass = new classRoom({
@@ -37,10 +33,6 @@ class classRoomController{
         try{
             const {classroom,description,subject,classroom_id}= req.body;
             const user_id=req.userData.user_id;
-            const role_id= req.userData.role_id;
-            if(role_id!=1){
-                return res.status(400).json({message:"Not Authorized To Edit The ClassRoom",data:[]});
-            }
             const updatedData={};
             if(classroom){
                 updatedData.classroom= classroom;
@@ -65,13 +57,9 @@ class classRoomController{
     async deleteClass(req,res){
         try{
             const {classroom_id}=req.body;
-            const role_id = req.userData.role_id;
             const user_id=req.userData.user_id;
             if(!classroom_id){
                 return res.status(400).json({message:"ClassRoom ID is Necessary",data:[]});
-            }
-            if(role_id!==1){
-                return res.status(403).json({message:"Not Authorized To Delete Class",data:[]});
             }
             const deletedClass=await classRoom.findOneAndDelete({_id:classroom_id,"created_by.user_id":user_id});
             if(!deletedClass){
@@ -92,10 +80,6 @@ class classRoomController{
             }
             if(!classroom_id){
                 return res.status(400).json({message:"Class ID Is Required",data:[]});
-            }
-            const role_id = req.userData.role_id;
-            if(role_id!==1){
-                return res.status(403).json({message:"Not Authorized To Add Student",data:[]});
             }
             const classroom = await classRoom.findOne({_id:classroom_id,"created_by.user_id":user_id});
             if(!classroom){
@@ -126,10 +110,6 @@ class classRoomController{
             }
             if(!classroom_id){
                 return res.status(400).json({message:"Class ID Is Required",data:[]});
-            }
-            const role_id = req.userData.role_id;
-            if(role_id!==1){
-                return res.status(403).json({message:"Not Authorized To Add Student",data:[]});
             }
             const classroom = await classRoom.findOne({_id:classroom_id,"created_by.user_id":user_id});
             if(!classroom){

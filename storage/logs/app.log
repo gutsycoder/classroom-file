@@ -153,3 +153,11 @@
   '    at finish (node:internal/streams/writable:757:10)\n' +
   '    at finishMaybe (node:internal/streams/writable:742:9)\n' +
   '    at afterWrite (node:internal/streams/writable:514:3)'
+2023-10-28T21:28:52.615Z error: 'deleteFile is not defined\n' +
+  'ReferenceError: deleteFile is not defined\n' +
+  '    at filesController.deleteFile (E:\\toddle_assignment\\controllers\\filesController.js:90:13)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-28T21:29:39.365Z error: 'deleteFile is not defined\n' +
+  'ReferenceError: deleteFile is not defined\n' +
+  '    at filesController.deleteFile (E:\\toddle_assignment\\controllers\\filesController.js:90:13)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
