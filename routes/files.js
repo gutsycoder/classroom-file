@@ -67,7 +67,12 @@ router.put('/update',checkAuth,checkTutor,(req,res)=>{
 
 router.delete('/delete',checkAuth,checkTutor,(req,res)=>{
     filesController.deleteFile(req,res);
-})
+});
+
+
+router.get('/',checkAuth,(req,res)=>{
+    filesController.getFiles(req,res);
+});
 
 
 
