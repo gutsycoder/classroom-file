@@ -5,7 +5,7 @@ const fs= require('fs');
 const filesController = require('../controllers/filesController');
 const multer = require('multer');
 const path = require('path');
-
+const checkTutor = require('../middleware/checkTutor');
 const uploadDir = 'uploads';
 if(!fs.existsSync(uploadDir)){
     fs.mkdirSync(uploadDir);
@@ -41,7 +41,7 @@ const upload = multer({
 
 
 
-router.post('/upload',checkAuth,(req,res)=>{
+router.post('/upload',checkAuth,checkTutor,(req,res)=>{
     try{
         upload.single("file")(req,res,(err)=>{
             if(err){
@@ -60,6 +60,14 @@ router.post('/upload',checkAuth,(req,res)=>{
 
    
 });
+
+router.put('/update',checkAuth,checkTutor,(req,res)=>{
+    filesController.updateFile(req,res);
+})
+
+router.delete('/delete',checkAuth,checkTutor,(req,res)=>{
+    filesController.deleteFile(req,res);
+})
 
 
 
