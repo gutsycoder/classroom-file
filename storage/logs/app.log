@@ -161,3 +161,7 @@
   'ReferenceError: deleteFile is not defined\n' +
   '    at filesController.deleteFile (E:\\toddle_assignment\\controllers\\filesController.js:90:13)\n' +
   '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-28T22:18:30.511Z error: 'res.status.json is not a function\n' +
+  'TypeError: res.status.json is not a function\n' +
+  '    at filesController.getFiles (E:\\toddle_assignment\\controllers\\filesController.js:113:31)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
