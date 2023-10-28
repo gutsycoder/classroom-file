@@ -165,3 +165,29 @@
   'TypeError: res.status.json is not a function\n' +
   '    at filesController.getFiles (E:\\toddle_assignment\\controllers\\filesController.js:113:31)\n' +
   '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-28T23:38:26.279Z error: 'filter is not defined\n' +
+  'ReferenceError: filter is not defined\n' +
+  '    at filesController.getFilesForTutor (E:\\toddle_assignment\\controllers\\filesController.js:159:78)\n' +
+  '    at filesController.getFiles (E:\\toddle_assignment\\controllers\\filesController.js:142:40)\n' +
+  '    at E:\\toddle_assignment\\routes\\files.js:74:21\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:144:13)\n' +
+  '    at module.exports (E:\\toddle_assignment\\middleware\\checkAuth.js:9:9)\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:144:13)\n' +
+  '    at Route.dispatch (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:114:3)\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)'
+2023-10-28T23:38:26.283Z error: 'filter is not defined'
+2023-10-28T23:38:47.527Z error: 'filter is not defined\n' +
+  'ReferenceError: filter is not defined\n' +
+  '    at filesController.getFilesForTutor (E:\\toddle_assignment\\controllers\\filesController.js:159:78)\n' +
+  '    at filesController.getFiles (E:\\toddle_assignment\\controllers\\filesController.js:142:40)\n' +
+  '    at E:\\toddle_assignment\\routes\\files.js:74:21\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:144:13)\n' +
+  '    at module.exports (E:\\toddle_assignment\\middleware\\checkAuth.js:9:9)\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+  '    at next (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:144:13)\n' +
+  '    at Route.dispatch (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\route.js:114:3)\n' +
+  '    at Layer.handle [as handle_request] (E:\\toddle_assignment\\node_modules\\express\\lib\\router\\layer.js:95:5)'
+2023-10-28T23:38:47.530Z error: 'filter is not defined'

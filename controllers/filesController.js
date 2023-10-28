@@ -129,12 +129,20 @@ class filesController{
         try{
             const user_id= req.userData.user_id;
             const role_id = req.userData.role_id;
+            const {fileType,fileName}=req.query;
+            var filter={}
+            if(fileType){
+                filter.file_type=fileType;
+            }
+            if(fileName){
+                filter.file_name=fileName;
+            }
             if(role_id==1){
                 console.log('Getting the files for the tutor');
-                var files = await this.getFilesForTutor(user_id);
+                var files = await this.getFilesForTutor(user_id,filter);
             }else{
                 console.log("Getting files for the student");
-                var files = await this.getFilesForStudent(user_id);
+                var files = await this.getFilesForStudent(user_id,filter);
             }
             
             return res.status(200).json({message:"Success",data:files});
@@ -146,9 +154,9 @@ class filesController{
     }
 
 
-    async getFilesForTutor(user_id){
+    async getFilesForTutor(user_id,filter){
         try{
-            const files = await Files.find({"uploaded_by.user_id":user_id});
+            const files = await Files.find({"uploaded_by.user_id":user_id,...filter});
             return files;
         }catch(error){
             logger.error(error);
@@ -156,13 +164,13 @@ class filesController{
         }
     }
 
-    async getFilesForStudent(user_id){
+    async getFilesForStudent(user_id,filter){
         try{
             const classrooms= await classRoom.find({"students.student_user_id":user_id});
             console.log(classrooms);
             const classroom_ids = classrooms.map(classroom => classroom._id.toString());
             console.log(classroom_ids);
-            const files = await Files.find({classroom_id:{$in:classroom_ids}});
+            const files = await Files.find({classroom_id:{$in:classroom_ids},...filter});
             console.log(files);
             return files;
         }catch(error){
