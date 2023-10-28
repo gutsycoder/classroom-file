@@ -57,3 +57,11 @@
   'TypeError: bcryptjs is not a function\n' +
   '    at UserController.loginUser (E:\\toddle_assignment\\controllers\\usersController.js:51:35)\n' +
   '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-28T13:51:09.360Z error: 'classroom.findOne is not a function\n' +
+  'TypeError: classroom.findOne is not a function\n' +
+  '    at classRoomController.removeStudent (E:\\toddle_assignment\\controllers\\classRoomController.js:146:54)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
+2023-10-28T14:03:43.934Z error: 'classroom.update is not a function\n' +
+  'TypeError: classroom.update is not a function\n' +
+  '    at classRoomController.removeStudent (E:\\toddle_assignment\\controllers\\classRoomController.js:143:29)\n' +
+  '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)'
