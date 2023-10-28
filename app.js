@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const users = require('./routes/users');
 const classroom = require('./routes/classrooms');
+const files = require('./routes/files');
 require('dotenv/config');
 const dbConnection = require('./dbConnection');
 
@@ -14,6 +15,7 @@ app.get('/',(req,res)=>{
 });
 app.use('/users',users);
 app.use('/classroom',classroom);
+app.use('/files',files);
 async function initializeDB() {
     try {
       await dbConnection.connectDB();   //Implementing the singleton pattern for the db Connection

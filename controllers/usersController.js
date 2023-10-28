@@ -54,6 +54,7 @@ class UserController{
             }
             const token = jwt.sign({
                 user_id:user.user_id,
+                name: user.name,
                 role:user.role,
                 role_id:user.role_id
             },process.env.JWT_KEY,{
