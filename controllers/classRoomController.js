@@ -151,6 +151,46 @@ class classRoomController{
         }
     }
 
+
+    async getClassRooms(req,res){
+        try{
+            const user_id=req.userData.user_id;
+            const role_id=req.userData.role_id;
+            if(role_id==1){
+                console.log('Getting the classrooms for the tutor') 
+                var class_rooms = await this.getClassRoomsForTutor(user_id);
+            }else{
+                console.log("Getting the classroom for the student");
+                var class_rooms =await this.getClassRoomsForStudent(user_id);
+            }
+            return res.status(200).json({message:"Success",data:class_rooms});
+
+
+        }catch(error){
+            logger.error(error);
+            return res.status(500).json({message:"Something Went Wrong",data:[]});
+        }
+    }
+
+    async getClassRoomsForTutor(user_id){
+        try{
+            const class_rooms = await classRoom.find({"created_by.user_id":user_id});
+            return class_rooms;
+        }catch(error){
+            logger.error(error);
+            throw {status:500,message:error.message||"Something Went Wrong"};
+        }
+    }
+    async getClassRoomsForStudent(user_id){
+        try{
+            const class_rooms = await classRoom.find({"students.student_user_id":user_id});
+            return class_rooms;
+        }catch(error){
+            logger.error(error);
+            throw {status:500,message:error.message||"Something Went Wrong"};
+        }
+    }
+
 }
 
 module.exports = new classRoomController();

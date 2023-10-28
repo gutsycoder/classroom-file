@@ -23,11 +23,7 @@ const classRoomSchema = new mongoose.Schema({
     students:[{
         _id: false,
         student_user_id: String
-    }],
-    files:[{
-        _id: false,
-        file_id: String
-    }],
+    }]
 },{timestamps:true});
 
 module.exports = mongoose.model('classrooms',classRoomSchema);
