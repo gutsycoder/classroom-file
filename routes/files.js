@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const checkAuth = require('../middleware/checkAuth');
 const fs= require('fs');
-//const fileController = require('../controllers/fileController');
+const filesController = require('../controllers/filesController');
 const multer = require('multer');
+const path = require('path');
 
 const uploadDir = 'uploads';
 if(!fs.existsSync(uploadDir)){
@@ -16,7 +17,10 @@ const multerStorage =  multer.diskStorage({
     },
     filename: (req,file,cb)=>{
         const ext = file.mimetype.split('/')[1];
-        cb(null,`${file.originalname}-${Date.now()}.${ext}`);
+        const filename =`${file.originalname}-${Date.now()}.${ext}`;
+        req.uploadedFilePath = path.join(__basedir,uploadDir,filename);
+        cb(null,filename);
+
     }
 });
 
@@ -47,11 +51,11 @@ router.post('/upload',checkAuth,(req,res)=>{
                     return res.status(400).json({message:"Unsupported File Type",data:err});
                 }
             }
-            return res.status(200).json({message:"File Uploaded Successfully",data:[]});
+            filesController.uploadFile(req,res);
         });
         
     }catch(error){
-       return res.status(400).json({messsage:"File Type Not Supported",data:error});
+       return res.status(500).json({messsage:"Something Went Wrong",data:[]});
     }
 
    
