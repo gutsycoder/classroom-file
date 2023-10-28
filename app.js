@@ -7,6 +7,7 @@ const classroom = require('./routes/classrooms');
 const files = require('./routes/files');
 require('dotenv/config');
 const dbConnection = require('./dbConnection');
+global.__basedir = __dirname;
 
 app.use(bodyParser.json());
 

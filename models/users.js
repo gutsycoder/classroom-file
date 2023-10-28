@@ -23,9 +23,6 @@ const userSchema = new mongoose.Schema({
         type: Number,
         enum:[1,2],
         default: 2
-    },
-    class_ids:{
-        type:[String]
     }
 },{timestamps:true});
 

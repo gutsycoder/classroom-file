@@ -15,11 +15,12 @@ const filesSchema = new mongoose.Schema({
     file_type:{
         type: String,
         enum:['AUDIO','VIDEO','IMAGE','URL'],
+        uppercase:true,
         required:[true,'File Type Is Required']
     },
     description:{
         type: String,
-        default:""
+        default:null
     },
     uploaded_at:{
         type:Date,
