@@ -22,7 +22,7 @@ const classRoomSchema = new mongoose.Schema({
     },
     students:[{
         _id: false,
-        student_id: String
+        student_user_id: String
     }],
     files:[{
         _id: false,
