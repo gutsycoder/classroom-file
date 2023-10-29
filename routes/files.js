@@ -16,8 +16,8 @@ const multerStorage =  multer.diskStorage({
         cb(null,'uploads');
     },
     filename: (req,file,cb)=>{
-        const ext = file.mimetype.split('/')[1];
-        const filename =`${file.originalname}-${Date.now()}.${ext}`;
+        const ext = path.extname(file.originalname);
+        const filename =`${file.originalname}-${Date.now()}${ext}`;
         req.uploadedFilePath = path.join("/uploads",filename);
         cb(null,filename);
 
@@ -25,9 +25,9 @@ const multerStorage =  multer.diskStorage({
 });
 
 const multerFilter = (req,file,cb)=>{
-    const allowedExtensions = ['mp3', 'wav', 'jpg', 'jpeg', 'png', 'gif', 'mp4', 'avi', 'mkv'];
-    const fileExtension = file.mimetype.split("/")[1];
-
+    const fileExtension = path.extname(file.originalname);
+    const allowedExtensions = ['.mp3', '.wav', '.jpg', '.jpeg', '.png', '.mp4', '.avi', '.mkv'];
+    console.log(file);
     if(allowedExtensions.includes(fileExtension)){
         cb(null,true);
     }else{
