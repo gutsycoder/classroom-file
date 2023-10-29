@@ -10,7 +10,7 @@ const dbConnection = require('./dbConnection');
 global.__basedir = __dirname;
 
 app.use(bodyParser.json());
-
+app.use(express.static('uploads'))
 app.get('/',(req,res)=>{
     return res.status(200).json({message:"Server Is Running",data:[]});
 });
